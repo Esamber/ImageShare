@@ -1,0 +1,11 @@
+﻿@model ImageUploadedViewModel
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 jumbotron">
+        <h3>Thank you for uploading your images, here's the link to share with your friends:</h3>
+        <br />
+        <a href="/home/viewimage?imageId=@Model.ImageId" style="font-size: 28px">https://localhost:44343/home/viewimage?id=@Model.ImageId</a>
+        <br />
+        <h3>Make sure to give them the password: @Model.Password</h3>
+    </div>
+</div>
