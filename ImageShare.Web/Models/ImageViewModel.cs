@@ -18,5 +18,6 @@ namespace ImageShare.Web.Models
     {
         public Image Image { get; set; }
         public bool PasswordEntered { get; set; }
+        public bool FalsePassword { get; set; }
     }
 }

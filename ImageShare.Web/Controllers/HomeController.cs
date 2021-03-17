@@ -48,7 +48,7 @@ namespace ImageShare.Web.Controllers
 
             return View(vm);
         }
-        public IActionResult ViewImage(int imageId)
+        public IActionResult ViewImage(int imageId, bool falsePassword)
         {
             ImageDb db = new(_connectionString);
             var ids = HttpContext.Session.Get<List<int>>("Ids");
@@ -56,7 +56,8 @@ namespace ImageShare.Web.Controllers
             ViewImageViewModel vm = new()
             {
                 Image = image,
-                PasswordEntered = ids==null ? false : ids.Contains(imageId)
+                PasswordEntered = ids==null ? false : ids.Contains(imageId),
+                FalsePassword = falsePassword
             };
             return View(vm);
         }
@@ -78,7 +79,7 @@ namespace ImageShare.Web.Controllers
                     HttpContext.Session.Set("Ids", ids);
                 }
             }
-            return Redirect($"/home/viewimage?imageId={imageId}");
+            return Redirect($"/home/viewimage?imageId={imageId}$falsePassword=true");
         }
     }
     public static class SessionExtensions
