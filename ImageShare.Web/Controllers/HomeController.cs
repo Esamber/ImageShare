@@ -61,7 +61,7 @@ namespace ImageShare.Web.Controllers
             };
             return View(vm);
         }
-        [HttpPost]
+        //[HttpPost]
         public IActionResult SubmitPassword(int imageId, string password)
         {
             ImageDb db = new(_connectionString);
